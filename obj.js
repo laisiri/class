@@ -40,3 +40,52 @@ class Person {
     console.log(`std3.id: ${std3.id}`);
 
 
+//how to static work
+class A{
+    //class A  pass two parameter and defined a_id and assign 
+    //A.num_1 to it
+    constructor(a_num,a_name) {
+        this.a_num = a_num;
+        this.a_name = a_name;
+        this.a_id = ++A.num_1;
+    }
+    static num_1 = 0;
+    //defined method logA()
+    logA() {
+        return this.a_name;
+    }
+}
+//defined class B is sub of class A with extends keyword 
+class B extends A {
+    constructor(a_num,a_name,b_num,b_name) {
+
+        super(a_num,a_name);//call property of classA
+        
+        this.b_num = b_num;
+        this.b_name = b_name;
+
+    }
+    
+}
+console.log(`A.num_1: ${A.num_1}`);
+console.log(`B.num_1:${B.num_1}`);
+
+const x = new A(2,'x');
+console.log("x: ");
+console.log(x);
+console.log(`x.num_1:${x.num_1}`);
+console.log(`x.a_id:${x.a_id}`);
+const y = new A(3,'y');
+console.log('y');
+console.log(y);
+console.log(`y.a_id:${y.a_id}`);
+const m = new B(30,'therty',20,'twenty');
+console.log("m");
+console.log(m);
+//console.log(m.getA_num());
+console.log(m.a_num);
+console.log(x.a_num);
+console.log(m.logA());//call method logA() 
+let q;
+console.log(q);    
+
